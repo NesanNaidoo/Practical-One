@@ -1,26 +1,9 @@
 # README
 
 The purpose of this project is to
-`[briefly describe the project's goals and objectives]`
+showcase the answers to Practical one
 
-## Reproducing the analysis
 
-Run the following code from the project working directory:
-
-```r
-if (!requireNamespace("projrsimple", quietly = TRUE)) {
-  if (!requireNamespace("remotes", quietly = TRUE)) {
-    install.packages("remotes")
-  }
-  remotes::install_github("MiguelRodo/projrsimple")
-}
-projrsimple::projr_run()
-```
-
-<!--
-Change the above instructions, e.g. specify non-default parameters or
-another approach entirely
--->
 
 ## Directory Structure
 
@@ -37,9 +20,8 @@ materials, generated outputs, and temporary files efficiently.
 - **`_tmp/**: Temporary storage for cached outputs, intermediate
   results, and shared files.
 
-## Links
 
-- `[URLs to data sources (e.g. OneDrive), GitHub repos, etc.]`
+
 
 ## Details
 

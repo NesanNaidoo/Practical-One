@@ -8,7 +8,7 @@ title: "Practical One"
 # Q1
 ```{r}
 #Find all rows in “airquality” that have missing values. Note that the airquality dataset in R is always available (just type airquality in the console to see it).
-AirQuality_missing_values <- airquality[!complete.cases(airquality), ]
+AirQuality_missing_values <- airquality[!complete.cases(airquality),]
 print(AirQuality_missing_values)
 ```
 
@@ -39,8 +39,7 @@ print(Ozone)
 
 # Q3
 ```{r}
-#For linear regression, parameter estimates can be found as follows. 
- #Here, Y is the response variable, and X is the design matrix. The cars data (an R data set, also always available in R) contains two variables: speed and distance to stop. Fit a simple linear regression model to these data, i.e. find the 
+#Fit a simple linear regression model to these data, i.e. find the 
  #estimates, using the equation above, and matrix calculations in R.
 lm_Model<-lm(dist~speed,data=cars)
 
@@ -48,7 +47,7 @@ lm_Model<-lm(dist~speed,data=cars)
 Y <- cars$dist  
 X <- cbind(1, cars$speed)  # Add intercept column (1s)
 
-# Compute beta estimates using matrix operations
+# Calculate beta estimates 
 betas <- solve(t(X) %*% X) %*% t(X) %*% Y
 
 # Print the estimated coefficients
