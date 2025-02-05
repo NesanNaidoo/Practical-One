@@ -1,14 +1,11 @@
 project:
   type: book
   title: Practical One
-  output-dir: _site
-  
-
+  output-dir: docs
 
 book:
   chapters:
-    - Practical One.qmd
-    
+    - "Practical One.qmd"
 
 format:
   html:
