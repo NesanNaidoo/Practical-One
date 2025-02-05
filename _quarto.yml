@@ -1,5 +1,21 @@
 project:
+  type: book
   title: "Practical One"
+  output-dir: docs
+  
+
+
+book:
+  chapters:
+    - Practical One.qmd
+    
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+    toc-location: left
 
 
 
