@@ -1,6 +1,6 @@
 project:
   type: book
-  title: "Practical One"
+  title: Practical One
   output-dir: docs
   
 

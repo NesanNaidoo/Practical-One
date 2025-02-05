@@ -19,10 +19,3 @@ materials, generated outputs, and temporary files efficiently.
   reports.
 - **`_tmp/**: Temporary storage for cached outputs, intermediate
   results, and shared files.
-
-
-
-
-## Details
-
-`[Methods, timeline, team, data sources, software/tools, etc.]`
