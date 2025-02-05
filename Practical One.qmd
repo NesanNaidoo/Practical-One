@@ -1,0 +1,65 @@
+---
+title: "Practical One"
+---
+
+## Practical one
+
+
+# Q1
+```{r}
+#Find all rows in “airquality” that have missing values. Note that the airquality dataset in R is always available (just type airquality in the console to see it).
+AirQuality_missing_values <- airquality[!complete.cases(airquality), ]
+print(AirQuality_missing_values)
+```
+
+#Q2
+```{r}
+#Find mean, sd, min, max for each of temperature and ozone level.
+
+meanTemp <- mean(airquality$Temp)
+sdTemp  <- sd(airquality$Temp)
+minTemp <- min(airquality$Temp)
+maxTemp <- max(airquality$Temp)
+
+#Removing missing value rows for ozone
+tempdata=airquality[!is.na(airquality$Ozone), ]  
+
+meanOzone <- mean(tempdata$Ozone)
+sdOzone  <- sd(tempdata$Ozone)
+minOzone <- min(tempdata$Ozone)
+maxOzone <- max(tempdata$Ozone)
+
+#For Display purposes
+Temp=data.frame(TempMetrics=c("mean","sd","min","max"),Values=c(meanTemp,sdTemp,minTemp,maxTemp))
+print(Temp)
+
+Ozone=data.frame(OzoneMetrics=c("mean","sd","min","max"),Values=c(meanOzone,sdOzone,minOzone,maxOzone))
+print(Ozone)
+```
+
+# Q3
+```{r}
+#For linear regression, parameter estimates can be found as follows. 
+ #Here, Y is the response variable, and X is the design matrix. The cars data (an R data set, also always available in R) contains two variables: speed and distance to stop. Fit a simple linear regression model to these data, i.e. find the 
+ #estimates, using the equation above, and matrix calculations in R.
+lm_Model<-lm(dist~speed,data=cars)
+
+# Define the response variable (Y) and independent variable (X)
+Y <- cars$dist  
+X <- cbind(1, cars$speed)  # Add intercept column (1s)
+
+# Compute beta estimates using matrix operations
+betas <- solve(t(X) %*% X) %*% t(X) %*% Y
+
+# Print the estimated coefficients
+print(betas)
+
+
+```
+
+# Q4
+```{r}
+#Checks whether estimates are correct
+summary(lm_Model)
+```
+
