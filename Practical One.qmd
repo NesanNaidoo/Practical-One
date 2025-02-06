@@ -33,18 +33,50 @@ print(Ozone)
 
 # Q3
 ```{r}
-#| echo: false
+
 lm_Model<-lm(dist~speed,data=cars)
 
 # Define the response variable (Y) and independent variable (X)
 Y <- cars$dist  
 X <- cbind(1, cars$speed)  # Add intercept column (1s)
 
+f<-function(x,y)
+{
 # Calculate beta estimates 
-betas <- solve(t(X) %*% X) %*% t(X) %*% Y
+betas <- solve(t(x) %*% x) %*% t(x) %*% y
+  
+# Calculate residuals
+residuals <- y - (x %*% betas)
+  
+# Estimate variance
+n <- nrow(x)
+p <- ncol(x)
+s2 <- as.numeric(t(residuals) %*% residuals)/(n - p)
+  
+# Variance-covariance matrix
+var_cov <- s2*solve(t(x) %*% x)
+  
+# Standard error of coefficients
+se_beta <- sqrt(diag(var_cov))
+  
 
-# Print the estimated coefficients
-print(betas)
+t_values <- betas/se_beta
+  
+
+p_values <- 2*(1 - pt(abs(t_values),df = n - p))
+  
+
+return(list(betas = betas, se_beta = se_beta, t_values = t_values, p_values = p_values))
+  
+
+}
+
+result <- f(X, Y)
+
+# Print results
+
+output<-data.frame(Estimate=c("Bo","B1","se(B0)","se(B1)","t-value Bo","t-value B1","p-value B0","p-value B1"),Values=c(result$betas,result$se_beta,result$t_values,result$p_values))
+print(output)
 
 
 ```
