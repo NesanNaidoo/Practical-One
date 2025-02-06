@@ -1,22 +1,15 @@
----
-title: "Practical One"
-author: Nesan Naidoo
-format: html
-date: r.sysdate()
----
-# Q1
 
+
+# Q1
 ```{r}
-#Find all rows in “airquality” that have missing values. Note that the airquality dataset in R is always available (just type airquality in the console to see it).
+#| echo: false
 AirQuality_missing_values <- airquality[!complete.cases(airquality),]
 print(AirQuality_missing_values)
 ```
 
 # Q2
-
 ```{r}
-#Find mean, sd, min, max for each of temperature and ozone level.
-
+#| echo: false
 meanTemp <- mean(airquality$Temp)
 sdTemp  <- sd(airquality$Temp)
 minTemp <- min(airquality$Temp)
@@ -39,10 +32,8 @@ print(Ozone)
 ```
 
 # Q3
-
 ```{r}
-#Fit a simple linear regression model to these data, i.e. find the 
- #estimates, using the equation above, and matrix calculations in R.
+#| echo: false
 lm_Model<-lm(dist~speed,data=cars)
 
 # Define the response variable (Y) and independent variable (X)
@@ -59,8 +50,8 @@ print(betas)
 ```
 
 # Q4
-
 ```{r}
+#| echo: false
 #Checks whether estimates are correct
 summary(lm_Model)
 ```
