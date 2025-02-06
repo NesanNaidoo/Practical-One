@@ -1,3 +1,9 @@
+---
+title: "Practical One"
+author: Nesan Naidoo
+format: html
+date: r.sysdate()
+---
 # Q1
 
 ```{r}
