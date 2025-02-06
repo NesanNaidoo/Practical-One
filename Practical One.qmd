@@ -1,6 +1,5 @@
-
-
 # Q1
+
 ```{r}
 #Find all rows in “airquality” that have missing values. Note that the airquality dataset in R is always available (just type airquality in the console to see it).
 AirQuality_missing_values <- airquality[!complete.cases(airquality),]
@@ -8,6 +7,7 @@ print(AirQuality_missing_values)
 ```
 
 # Q2
+
 ```{r}
 #Find mean, sd, min, max for each of temperature and ozone level.
 
@@ -33,6 +33,7 @@ print(Ozone)
 ```
 
 # Q3
+
 ```{r}
 #Fit a simple linear regression model to these data, i.e. find the 
  #estimates, using the equation above, and matrix calculations in R.
@@ -52,8 +53,8 @@ print(betas)
 ```
 
 # Q4
+
 ```{r}
 #Checks whether estimates are correct
 summary(lm_Model)
 ```
-
