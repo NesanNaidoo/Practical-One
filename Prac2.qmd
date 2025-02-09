@@ -1,0 +1,71 @@
+# Prac 2
+
+## 1. Generate a simulated dataset
+
+```{r}
+set.seed(1)
+simDataX<- seq(1:100)
+e<- rnorm(length(simDataX), mean = 0, sd = 0.04)
+simDataY<-sin(simDataX/10)+e
+```
+
+## 2. Implement the LOWESS Algorithm:
+
+```{r}
+#Define the Span 
+f <- 0.2  #Choose a 20% span
+n<-length(simDataX)
+k <- ceiling(f * n)  #Number of nearest neighbors
+y_smooth <- numeric(n)
+
+customLowess<-function(x,y,f){
+  
+   #Define function for one point
+  smooth_1P<- function(i) {
+    dists<- abs(x - x[i])
+    neighbors<- order(dists)[1:k]  
+    dmax<- max(dists[neighbors])  
+    
+    #Compute tricube weights 
+    w <- (1 - (dists[neighbors] / dmax)^3)^3
+    w[dists[neighbors] >= dmax] <- 0
+    
+    #Weighted Linear Regression 
+    X <- cbind(1, x[neighbors])  
+    W <- diag(w)  
+    y_res <- y[neighbors]  # Response variable
+    
+    
+    beta <- solve(t(X) %*% W %*% X) %*% (t(X) %*% W %*% y_res)
+    
+   
+    return(beta[1] + beta[2] * x[i])
+  }
+  
+  # Apply vectorized function to all x values
+  y_smooth <- sapply(1:n, smooth_1P)
+  
+  return(y_smooth)
+
+}
+
+y_smooth_vect<- customLowess(simDataX,simDataY, f)
+y_smooth_vect
+```
+
+## 3. Compare with built in function
+
+```{r}
+lowessBIn <- lowess(simDataX, simDataY, f = f, iter = 0)
+lowessBIn$y
+
+library(ggplot2)
+
+ggplot() +
+  geom_point(aes(simDataX, simDataY), color = "blue", alpha = 0.5) +  
+  geom_line(aes(simDataX, y_smooth_vect), color = "green", lwd = 1.5, label = "Custom Function") +  
+  geom_line(aes(lowessBIn$x, lowessBIn$y), color = "black", lwd = 1.5, linetype = "dotted", label = "Built-in LOWESS") +  
+  labs(title = "Lowess Smoothing:Custom Function vs Built-in",
+       x = "X - values", y = "Y- values") +
+  theme_minimal()
+```

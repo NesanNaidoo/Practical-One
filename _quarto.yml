@@ -1,17 +1,22 @@
 project:
   type: book
-  title: Practical One
+  
   output-dir: docs
 
 book:
-  title: Practical One
+  title: Practicals
   chapters:
     - index.qmd
     - Practical One.qmd
+    - Prac2.qmd
+    - PracticalDay4.qmd
 
 format:
   html:
     theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-location: left
     
 
 
