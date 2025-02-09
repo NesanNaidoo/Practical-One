@@ -1,6 +1,6 @@
 # Practical Day 4
 
-## Loading libraries
+### Loading libraries
 
 ```{r}
 #| echo: false
@@ -10,7 +10,7 @@ library(tidyr)
 library(dplyr)
 ```
 
-## Q1
+### Q1
 
 ```{r}
 #| echo: false
@@ -18,7 +18,7 @@ dfflight <- as_tibble(flights)
 dfflight
 ```
 
-## Q2
+### Q2
 
 ```{r}
 dist_tbl2<- flights |> 
@@ -29,7 +29,7 @@ dist_tbl2
 
 ```
 
-## Q3
+### Q3
 
 ```{r}
 # The standard deviation formula requires at least two values.If a carrier has only one flight record, the standard deviation will be NA 
@@ -48,7 +48,7 @@ flights |> filter(month == 1)  |>  group_by(carrier)  |>
 #We know Carrier OO has only 1 flight so the carriers having more than 1 flight, had the same distance for their respective flights
 ```
 
-## Q4
+### Q4
 
 ```{r}
 flights |> 
@@ -61,7 +61,7 @@ flights |>
   ) |> arrange(month)
 ```
 
-## Q5
+### Q5
 
 ```{r}
 #Calculate the proportion of flights that were delayed (dep_delay greater than 0) but arrived on or before time (arr_delay less than or equal to 0).
@@ -71,7 +71,7 @@ prop<-nrow(delflight)/nrow(flights)
 prop*100
 ```
 
-## Q6
+### Q6
 
 ```{r}
 
@@ -83,7 +83,7 @@ multi_air_route
 
 #For each such route, calculate the average arrival delay for each airline (exclude NAs). Find the names of these airlines.
 avgArr_DelayAirline <- flights |> 
-  semi_join(multi_air_routes, by = c("origin", "dest")) |>  
+  semi_join(multi_air_route, by = c("origin", "dest")) |>  
   group_by(origin, dest, carrier) |> 
   summarise(avg_arrdelay = mean(arr_delay, na.rm = TRUE)) |>
   left_join(airlines, by = "carrier") |>  
@@ -127,6 +127,7 @@ flights |>
 ```
 
 ## Q7
+
 ```{r}
 data<-structure(list(id = c("id_1", "id_2", "id_3", "id_4", "id_5", 
 "id_6", "id_7", "id_8", "id_9", "id_10", "id_11", "id_12", "id_13", 
@@ -233,4 +234,3 @@ data |> select(gender,height,disease_status,glucose)
 
 
 ```
-

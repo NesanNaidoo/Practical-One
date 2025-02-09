@@ -1,7 +1,7 @@
 project:
   type: book
   
-  output-dir: docs
+  output-dir: _book
 
 book:
   title: Practicals
@@ -10,12 +10,19 @@ book:
     - Practical One.qmd
     - Prac2.qmd
     - PracticalDay4.qmd
+  sidebar:
+    border: true
+    background: light
+    position: right
+  navbar:
+    search: true
+    background: light
 
 format:
   html:
     theme: cosmo
     toc: true
-    toc-depth: 3
+    toc-depth: 4
     toc-location: left
     
 

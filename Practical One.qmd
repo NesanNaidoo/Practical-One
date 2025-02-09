@@ -1,17 +1,16 @@
-# Practical One
+# Practical 1
 
-## Q1
+### Q1
 
 ```{r}
-#| echo: false
 AirQuality_missing_values <- airquality[!complete.cases(airquality),]
 print(AirQuality_missing_values)
 ```
 
-## Q2
+### Q2
 
 ```{r}
-#| echo: false
+
 meanTemp <- mean(airquality$Temp)
 sdTemp  <- sd(airquality$Temp)
 minTemp <- min(airquality$Temp)
@@ -33,7 +32,7 @@ Ozone=data.frame(OzoneMetrics=c("mean","sd","min","max"),Values=c(meanOzone,sdOz
 print(Ozone)
 ```
 
-## Q3
+### Q3
 
 ```{r}
 
@@ -84,10 +83,9 @@ print(output)
 
 ```
 
-## Q4
+### Q4
 
 ```{r}
-#| echo: false
 #Checks whether estimates are correct
 summary(lm_Model)
 ```

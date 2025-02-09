@@ -1,6 +1,6 @@
-# Prac 2
+# Practical 2
 
-## 1. Generate a simulated dataset
+### 1. *Generate a simulated data set*
 
 ```{r}
 set.seed(1)
@@ -9,7 +9,7 @@ e<- rnorm(length(simDataX), mean = 0, sd = 0.04)
 simDataY<-sin(simDataX/10)+e
 ```
 
-## 2. Implement the LOWESS Algorithm:
+### 2. *Implement the LOWESS Algorithm:*
 
 ```{r}
 #Define the Span 
@@ -53,7 +53,7 @@ y_smooth_vect<- customLowess(simDataX,simDataY, f)
 y_smooth_vect
 ```
 
-## 3. Compare with built in function
+### 3. *Compare with built in function*
 
 ```{r}
 lowessBIn <- lowess(simDataX, simDataY, f = f, iter = 0)
