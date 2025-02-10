@@ -126,7 +126,7 @@ flights |>
 #It is clear EV airline are the sole cause for the delays because other carriers had no where near the delay time for the same route leaving at the same time.
 ```
 
-## Q7
+### Q7
 
 ```{r}
 data<-structure(list(id = c("id_1", "id_2", "id_3", "id_4", "id_5", 
