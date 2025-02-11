@@ -1,1 +1,3 @@
-# Index
+# Welcome to Practicals: Week One
+
+Link to GitHub :[GitHub Link](https://github.com/NesanNaidoo/Practical-One)

@@ -1,5 +1,7 @@
 # Practical 1
 
+Link to GitHub :[GitHub Link](https://github.com/NesanNaidoo/Practical-One)
+
 ### Q1
 
 ```{r}
